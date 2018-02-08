@@ -20,5 +20,17 @@ const view = (state, actions) => {
   `;
 }
 
+const logger = state => {
+  console.log(`
+    Count: ${state.count}
+    =====================================
+    'actions.down(val)' to decrease Count
+    'actions.up(val)' to increase Count
+  `);
+  return;
+}
+
 const main = app(state, actions, view);
 window['main'] = main;
+
+window['actions'] = app(state, actions, logger);
